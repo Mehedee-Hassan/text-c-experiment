@@ -20,6 +20,7 @@ class LocationChunker(ChunkParserI):
         data = [a for a in data if '' != a]
         print("=========")
         print (data)
+        return data
 
 
 
@@ -30,10 +31,12 @@ class LocationChunker(ChunkParserI):
         # gazetteers is a WordListCorpusReader of many different location words
         self.locations = set(gazetteers.words())
 
-        self.readGazetteers_list()
+        add_to_corpus = self.readGazetteers_list()
 
-        self.locations.add('Chapai Nabab Ganj')
-        print(self.locations)
+        for t in add_to_corpus:
+            self.locations.add(t)
+
+        # print(self.locations)
 
         self.lookahead = 0
         # need to know how many words to lookahead in the tagged sentence to find a location
@@ -98,15 +101,15 @@ class LocationChunker(ChunkParserI):
 # run script
 # ==========
 def main():
-    loc = LocationChunker()
-    t =  loc.parse([('Chapai', 'NNP'), ('Nabab', 'NNP'), ('Ganj','NNP'), ('is', 'BE'), ('cold', 'JJ'), ('compared', 'VBD'), ('to','TO'), ('San', 'NNP'), ('Jose', 'NNP'), ('CA', 'NNP')])
-
-    a =  "For/IN the/DT past/JJ few/JJ days/NNS ,/, there/EX has/VBZ been/VBN a/DT rather/RB surprising/JJ change/NN in/IN the/DT way/NN things/NNS go/VBP on/IN at/IN the/DT Agargaon/NNP passport/NN office/NN in/IN the/DT capital/NN"
-
-    print(t)
-    print("===")
-    print(loc.sub_leaves(t,'LOCATION'))
-
+    # loc = LocationChunker()
+    # t =  loc.parse([('Chapai', 'NNP'), ('Nabab', 'NNP'), ('Ganj','NNP'), ('is', 'BE'), ('cold', 'JJ'), ('compared', 'VBD'), ('to','TO'), ('San', 'NNP'), ('Jose', 'NNP'), ('CA', 'NNP')])
+    #
+    # a =  "For/IN the/DT past/JJ few/JJ days/NNS ,/, there/EX has/VBZ been/VBN a/DT rather/RB surprising/JJ change/NN in/IN the/DT way/NN things/NNS go/VBP on/IN at/IN the/DT Agargaon/NNP passport/NN office/NN in/IN the/DT capital/NN"
+    #
+    # print(t)
+    # print("===")
+    # print(loc.sub_leaves(t,'LOCATION'))
+    pass
 
 if __name__=="__main__":
     main()

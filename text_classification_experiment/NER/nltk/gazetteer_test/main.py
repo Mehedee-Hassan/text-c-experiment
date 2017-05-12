@@ -11,24 +11,24 @@ def main():
           " sufficient to render fish unsafe to eat over an area of approximately 70 square kilometres around the power plant.Additionally," \
           " 10,000kg of mercury over the life of the plant could end up in either the coal ash pond, which is subject to flooding, said Lauri" \
           " Myllyvirta of Greenpeace.Read Also: Not merely a forest but lifeThis additional mercury will pose further risks to the aquatic food" \
-          " chain of the Sundarbans and the Bay of Bengal, impacting millions of people, the study added.National Committee to Protect the" \
-          " Sundarbans convener Sultana Kamal, its member secretary Dr Abdul Matin and Doctors for Health and Environment President Dr Nazmun " \
+          " chain of the Sundarban and the Bay of Bengal, impacting millions of people, the study added.National Committee to Protect the" \
+          " Sundarban convener Sultana Kamal, its member secretary Dr Abdul Matin and Doctors for Health and Environment President Dr Nazmun " \
           "Nahar also spoke at the press conference.The proposed 1,320-megawatt plant, a joint partnership between India's state-owned National" \
           " Thermal Power Corporation and Bangladesh Power Development Board, is on an area of over 1,834 acres of land and situated 14 kilometres" \
-          " north of the world's largest mangrove forest the Sundarbans, which is a UNESCO world heritage site.Green groups have been opposing the " \
+          " north of the world's largest mangrove forest the Sundarban, which is a UNESCO world heritage site.Green groups have been opposing the " \
           "power plant since the signing of a memorandum of understanding between Bangladesh and India in 2010.The government, however, has been " \
           "emphatic on implementing the project and moving forward to implement the project, saying it was using the best technologies available " \
-          "to prevent the possible damages.This additional mercury will pose further risks to the aquatic food chain of the Sundarbans and the Bay " \
+          "to prevent the possible damages.This additional mercury will pose further risks to the aquatic food chain of the Sundarban and the Bay " \
           "of Bengal, impacting millions of people, the study added."
 
 
     temp = process_document(doc)
 
 
-    print(nltk.corpus.treebank.tagged_sents()[22])
+    # print(nltk.corpus.treebank.tagged_sents()[22])
     print("==========")
-
-    test1 = temp[0]
+    #
+    # test1 = temp[0]
     singleArray = []
 
 
@@ -38,17 +38,17 @@ def main():
     print (singleArray)
 
 
-    temp_ne = nltk.ne_chunk(singleArray)
-    print (temp_ne)
+    # temp_ne = nltk.ne_chunk(singleArray)
+    # print (temp_ne)
 
     loc = gaztteer.LocationChunker()
     t = loc.parse(singleArray)
 
     # a = "For/IN the/DT past/JJ few/JJ days/NNS ,/, there/EX has/VBZ been/VBN a/DT rather/RB surprising/JJ change/NN in/IN the/DT way/NN things/NNS go/VBP on/IN at/IN the/DT Agargaon/NNP passport/NN office/NN in/IN the/DT capital/NN"
 
-    print(t)
     print("===")
-    print(loc.sub_leaves(t,'LOCATION'))
+    print (t)
+    # print(loc.sub_leaves(t,'LOCATION'))
 
 
 
