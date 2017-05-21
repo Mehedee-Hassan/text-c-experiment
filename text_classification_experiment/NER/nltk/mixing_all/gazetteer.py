@@ -18,8 +18,8 @@ class LocationChunker(ChunkParserI):
         data = file_opener.readlines()
         data = [a.strip('\n') for a in data ]
         data = [a for a in data if '' != a]
-        print("=========")
-        print (data)
+        # print("=========")
+        # print (data)
         return data
 
 
