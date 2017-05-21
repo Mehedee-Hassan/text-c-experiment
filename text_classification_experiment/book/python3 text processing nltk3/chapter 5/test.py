@@ -4,7 +4,6 @@ from nltk.corpus import gazetteers
 
 
 
-
 class LocationChunker(ChunkParserI):
 
     def __init__(self):
@@ -20,7 +19,7 @@ class LocationChunker(ChunkParserI):
     def iob_locations(self, tagged_sent):
         i = 0
         l = len(tagged_sent)
-
+        
         inside = False
 
         while i < l:
@@ -64,17 +63,9 @@ class LocationChunker(ChunkParserI):
     def parse(self, tagged_sent):
         iobs = self.iob_locations(tagged_sent)
         return conlltags2tree(iobs)
+        
 
 
-
-
-loc = LocationChunker()
 
 t = loc.parse([('San', 'NNP'), ('Francisco', 'NNP'), ('CA','NNP'), ('is', 'BE'), ('cold', 'JJ'), ('compared', 'VBD'), ('to','TO'), ('San', 'NNP'), ('Jose', 'NNP'), ('CA', 'NNP')])
-
-
-# print(sub_leaves(t, 'LOCATION'))
-
-
-
-
+print(sub_leaves(t, 'LOCATION'))

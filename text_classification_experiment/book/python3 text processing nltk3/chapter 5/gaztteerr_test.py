@@ -6,15 +6,31 @@ from nltk.corpus import gazetteers
 
 class LocationChunker(ChunkParserI):
     # '''Chunks locations based on the gazetteers corpus.
+    # '''Chunks locations based on the gazetteers corpus.
     # >>> loc = LocationChunker()
     # >>> t = loc.parse([('San', 'NNP'), ('Francisco', 'NNP'), ('CA', 'NNP'), ('is', 'BE'), ('cold', 'JJ'), ('compared', 'VBD'), ('to', 'TO'), ('San', 'NNP'), ('Jose', 'NNP'), ('CA', 'NNP')])
     # >>> sub_leaves(t, 'LOCATION')
     # [[('San', 'NNP'), ('Francisco', 'NNP'), ('CA', 'NNP')], [('San', 'NNP'), ('Jose', 'NNP'), ('CA', 'NNP')]]
     # '''
 
+    def readGazetteers_list(self):
+        file_opener = open('gazetteers_list','r')
+        data = file_opener.readlines()
+        data = [a.strip('\n') for a in data ]
+        data = [a for a in data if '' != a]
+        print("=========")
+        print (data)
+
+
+
+
+
+
     def __init__(self):
         # gazetteers is a WordListCorpusReader of many different location words
         self.locations = set(gazetteers.words())
+
+        self.readGazetteers_list()
 
         self.locations.add('Chapai Nabab Ganj')
         print(self.locations)
@@ -84,6 +100,8 @@ def sub_leaves(tree, label):
 
 loc = LocationChunker()
 t =  loc.parse([('Chapai', 'NNP'), ('Nabab', 'NNP'), ('Ganj','NNP'), ('is', 'BE'), ('cold', 'JJ'), ('compared', 'VBD'), ('to','TO'), ('San', 'NNP'), ('Jose', 'NNP'), ('CA', 'NNP')])
+
+a =  "For/IN the/DT past/JJ few/JJ days/NNS ,/, there/EX has/VBZ been/VBN a/DT rather/RB surprising/JJ change/NN in/IN the/DT way/NN things/NNS go/VBP on/IN at/IN the/DT Agargaon/NNP passport/NN office/NN in/IN the/DT capital/NN"
 
 print(t)
 print("===")
