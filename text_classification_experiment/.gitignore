@@ -1,0 +1,12 @@
+.idea/*
+.gitignore
+.idea/workspace.xml
+NER/nltk/gazetteer_test/__pycache__/
+NER/nltk/mixing_all/__pycache__/
+NER/nltk/mixing_all/deleteme/
+NER/nltk/mixing_all/gazetteer_test/__pycache__/
+NER/nltk/mixing_all/ncrime___jb_old___
+NER/nltk/mixing_all/test___jb_old___
+book/text_ana_python_prac_apr/ch7/lib/__pycache__/
+classification/sentence_classification/test1/__pycache__/
+classification/sentence_classification/test1/sentence_with_loc/__pycache__/
