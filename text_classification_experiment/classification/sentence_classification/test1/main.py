@@ -24,13 +24,10 @@ import sys
 sys.path.insert(0, os.getcwd()+'/sentence_with_loc')
 sys.path.insert(0, os.getcwd()+'/sentence_with_loc/gazetteers_list')
 
-# sys.path.insert(0, '/ne_filter.py')
-
-# SWL =__import__('sentence_with_loc')
 import sentence_with_loc.ne_filter  as SWL
 
 
-# import test1.sentence_with_loc.ne_filter as SWL
+
 
 def read_data(path):
     files = os.listdir(path)
