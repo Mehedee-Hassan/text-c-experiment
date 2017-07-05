@@ -1,6 +1,6 @@
 import nltk.data
 import os
-import main as gaz
+import main_gaz as gaz
 
 
 
@@ -12,7 +12,7 @@ __to_write_path = 'list_of_sentence_with_loc.txt'
 tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
 
 
-def line_token(data):
+def line_token(data,docnum):
 
     lines = tokenizer.tokenize(data)
     # print ('\n-----\n'.join(lines))
@@ -20,19 +20,37 @@ def line_token(data):
     location_lines = []
 
     for line in lines:
+
+
         locs = gaz.main(line)
-        print("*********************")
-        print(locs)
-        print("=size =",len(locs))
+        # print("*********************")
+        # print(locs)
+        # print("=size =",len(locs))
         if len(locs) != 0:
-
-
-            location_lines.append((line,locs))
-
-
-        print("*********************")
+            print(docnum)
+            location_lines.append(line)
+        # print("*********************")
     return location_lines
 
+#
+# def line_token(data):
+#
+#     lines = tokenizer.tokenize(data)
+#     # print ('\n-----\n'.join(lines))
+#
+#     location_lines = []
+#
+#     for line in lines:
+#         locs = gaz.main(line)
+#         # print("*********************")
+#         # print(locs)
+#         # print("=size =",len(locs))
+#         if len(locs) != 0:
+#
+#             location_lines.append(line)
+#         # print("*********************")
+#     return location_lines
+#
 
 
 def readDir():
